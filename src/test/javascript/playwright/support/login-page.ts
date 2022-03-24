@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import { NavBar } from './navbar';
 import {
   titleLoginSelector,
@@ -14,6 +14,7 @@ export class LoginPage extends NavBar {
   readonly passwordLoginInput: Locator;
   readonly submitLoginForm: Locator
   readonly loginTitle: Locator;
+  readonly loginError: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -22,6 +23,7 @@ export class LoginPage extends NavBar {
     this.passwordLoginInput = page.locator(passwordLoginSelector);
     this.submitLoginForm = page.locator(submitLoginSelector);
     this.loginTitle = page.locator(titleLoginSelector);
+    this.loginError = page.locator(errorLoginSelector);
   }
 
   async goto() {
